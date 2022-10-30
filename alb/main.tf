@@ -12,7 +12,7 @@ resource "aws_lb_target_group" "main" {
 
 resource "aws_lb" "alb_v2" {
   name               = replace(local.name, "rtype", "alb-v2")
-  internal           = var.env != "dev" ? true : false
+  internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.alb_sg.id]
   subnets            = data.terraform_remote_state.vpc_v3.outputs.subnet_id
