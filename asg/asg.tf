@@ -7,7 +7,7 @@ resource "aws_autoscaling_group" "main" {
   desired_capacity          = var.desired_capacity
   force_delete              = var.force_delete
   launch_configuration      = aws_launch_configuration.main.name
-  vpc_zone_identifier       = data.terraform_remote_state.vpc_v3.outputs.subnet_id
+  vpc_zone_identifier       = data.terraform_remote_state.vpc_v3.outputs.private_subnet
 
   lifecycle {
     create_before_destroy = true
